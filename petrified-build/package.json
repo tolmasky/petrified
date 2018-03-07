@@ -1,0 +1,35 @@
+{
+  "name": "@petrified/build",
+  "version": "1.0.0",
+  "main": "petrified-build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "isomorphic": {
+    "react": false
+  },
+  "dependencies": {
+    "babel-plugin-emotion": "^8.0.12",
+    "babel-register": "^6.26.0",
+    "commander": "^2.13.0",
+    "commonmark": "^0.28.1",
+    "commonmark-react-renderer": "^4.3.4",
+    "emotion": "^8.0.12",
+    "emotion-server": "^8.0.12",
+    "generic-jsx": "^18.0.0-beta.3",
+    "js-yaml": "^3.10.0",
+    "micromatch": "^3.1.9",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "sf-fs": "^2.0.0",
+    "uuid": "^3.2.1"
+  },
+  "bin": {
+    "build": "bootstrap.js"
+  },
+  "devDependencies": {},
+  "description": ""
+}

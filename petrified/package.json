@@ -1,0 +1,36 @@
+{
+  "name": "petrified",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@atom/watcher": "0.0.8",
+    "@await/event": "^1.0.0",
+    "babel-plugin-emotion": "^8.0.12",
+    "babel-register": "^6.26.0",
+    "commander": "^2.13.0",
+    "commonmark": "^0.28.1",
+    "commonmark-react-renderer": "^4.3.4",
+    "emotion": "^8.0.12",
+    "emotion-server": "^8.0.12",
+    "express": "^4.16.2",
+    "generic-jsx": "^18.0.0-beta.3",
+    "http-proxy": "^1.16.2",
+    "js-yaml": "^3.10.0",
+    "micromatch": "^3.1.9",
+    "ps-tree": "^1.1.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "request": "^2.83.0",
+    "sf-fs": "^2.0.0",
+    "uuid": "^3.2.1",
+    "watch": "^1.0.2",
+    "ws": "^4.1.0"
+  }
+}
