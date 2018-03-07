@@ -1,12 +1,16 @@
+#!/usr/bin/env node
+
 const { resolve } = require("path");
 const commands = require("commander");
 
-commands.command("build [source]")
+require("@petrified/build/bin/command")(commands, "build");
+
+/*commands.command("build [source]")
     .option("-o, --output [output]", "Output destination")
     .option("--cache [cache]", "Cache destination") 
     .option("--drafts", "Include drafts")
     .action(function (mSource, options)
-    {
+    {/*
         const cwd = process.cwd();
         const source = resolve(cwd, mSource || ".");
         const destination = resolve(cwd, options.output || `${source}/_site`);
@@ -16,7 +20,7 @@ commands.command("build [source]")
 
         require("./bootstrap")({ dev: true, source });
         require("./build")({ site, drafts, source, destination, cache });
-    })
+    })*/
 
 commands.command("watch [source]")
     .option("--drafts", "Include drafts")
