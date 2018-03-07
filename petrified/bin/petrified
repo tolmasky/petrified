@@ -3,7 +3,7 @@
 const { resolve } = require("path");
 const commands = require("commander");
 
-require("@petrified/build/bin/command")(commands, "build");
+require("@petrified/build/command")(commands, "build");
 
 /*commands.command("build [source]")
     .option("-o, --output [output]", "Output destination")

@@ -27,9 +27,6 @@
     "sf-fs": "^2.0.0",
     "uuid": "^3.2.1"
   },
-  "bin": {
-    "build": "bootstrap.js"
-  },
   "devDependencies": {},
   "description": ""
 }
