@@ -15,7 +15,7 @@ module.exports = function ({ site, drafts = false, source, destination, cache })
     const components = getComponents({ source });
     const common = { site, components, destination, cache };
 
-    require("child_process").execSync(`rm -rf ${source}/_cache`);
+    require("child_process").execSync(`rm -rf ${cache}`);
 
     runtime(
         <redirects { ...common }>

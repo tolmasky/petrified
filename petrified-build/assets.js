@@ -5,14 +5,14 @@ const getFileChecksum = require("@isomorphic/runtime/get-file-checksum");
 const page = require("./transform/page");
 
 
-module.exports = function assets({ source, destination, ...rest })
+module.exports = function assets({ source, destination, cache, ...rest })
 {
     const exclude = `${source}/${page.match}`;
     const options = { destination };
     const transforms = [{ match: "**/*", transform: asset, options, contents: false }];
 
     return  <toAssetMap>
-                <tree { ...{ source, destination, transforms, exclude } } />;
+                <tree { ...{ source, destination, transforms, exclude, cache } } />;
             </toAssetMap>
 }
 
