@@ -14,7 +14,7 @@ module.exports = function (commander, name)
 
     return command
         .option("-o, --output [output]", "Output destination")
-        .option("--cache [cache]", "Cache destination") 
+        .option("--cache [cache]", "Cache destination")
         .option("--drafts", "Include drafts")
         .action(function (mSource, options)
         {
@@ -28,6 +28,12 @@ module.exports = function (commander, name)
             const site = require(`${source}/petrified.json`);
 
             require("magic-ws/babel-register")([{ source, options: babelOptions }]);
+
+            const getPackageDescriptions = require("magic-ws/get-package-descriptions");
+            const packageDescriptions = getPackageDescriptions([], [__dirname + "/node_modules/emotion"]);
+
+            require("magic-ws/modify-resolve-lookup-paths")(packageDescriptions);
+
             require("../petrified-build")({ site, drafts, source, destination, cache });
         })
 }
