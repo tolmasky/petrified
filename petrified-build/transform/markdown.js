@@ -27,7 +27,7 @@ module.exports = function markdown({ contents, options })
 
     const Component = components[component]();
     const markup = render(React.createElement(Component, props, children), options.assets);
-    const preview = children.slice(0, 2);
+    const preview = render(children.slice(0, 2), options.assets);
 
     return { contents: markup, metadata: { frontmatter: { ...props, preview }, destination: options.destination } };
 }
