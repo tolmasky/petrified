@@ -2,6 +2,7 @@ const runtime = require("@isomorphic/runtime");
 const tree = require("@isomorphic/tree");
 
 const assets = require("./assets");
+const fs = require("sf-fs");
 
 const page = require("./transform/page");
 const post = require("./transform/post");
@@ -54,6 +55,9 @@ function posts({ site, components, source, destination, cache, children })
 {
     const options = { components, props: { site }, assets:children[0] || { } };
     const transforms = [{ match: `${source}/*`, transform: post, directories: true, options }];
-    
+
+    if (!fs.exists(source))
+        return [];
+
     return <tree { ...{ source, transforms, destination, cache } }/>;
 }

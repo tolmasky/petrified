@@ -12,7 +12,7 @@ const render = require("./react-element");
 module.exports = function markdown({ contents, options })
 {
     const { frontmatter, markdown } = split(contents);
-    const { components, metadata } = options;
+    const { components, metadata = { } } = options;
 
     // React children.
     // FIXME: resolve() isn't right.
@@ -20,7 +20,7 @@ module.exports = function markdown({ contents, options })
         uri : resolve(metadata.pathname, uri);
     const children = cm.render({ markdown, transformImageUri, components: components.markdown });
     const date = frontmatter.date && new Date(frontmatter.date) || metadata.date;
-    const { component, ...props } = { ...metadata, ...frontmatter, date };
+    const { component, ...props } = { ...metadata, ...frontmatter, date, ...options.props };
 
     if (!component)
         throw new Error("Cannot render markdown file without a layout component.");
