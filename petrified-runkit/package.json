@@ -1,0 +1,18 @@
+{
+  "name": "@petrified/runkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "petrified-runkit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Francisco Ryan Tolmasky I",
+  "license": "MIT",
+  "dependencies": {
+    "codemirror": "^5.36.0"
+  },
+  "peerDependencies": {
+    "react": "^16.3.1"
+  }
+}
