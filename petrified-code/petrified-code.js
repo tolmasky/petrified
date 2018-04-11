@@ -1,9 +1,7 @@
 const React = require("react");
 const { css } = require("emotion");
-const linenumber =
-    <div className = "CodeMirror-gutter-wrapper">
-        <span className = "CodeMirror-linenumber" />
-    </div>;
+
+const initiateEmbed = require("./runkit-embed");
 
 
 module.exports = function code({ codeinfo, literal })
@@ -23,12 +21,13 @@ module.exports = function code({ codeinfo, literal })
         "theme-border-radius",
         styles()
     ].join(" ");
+    const code = <code className = "cm-s-runkit-light" >
+        <div className = { className } >
+            { highlightContents(mode, literal) }
+        </div>
+    </code>;
 
-    return  <code className = "cm-s-runkit-light" >
-                <div className = { className } >
-                    { highlightContents(mode, literal) }
-                </div>
-            </code>;
+    return [code, initiateEmbed(codeinfo)];
 };
 
 function styles()
@@ -73,13 +72,17 @@ function styles()
 function highlightContents(mode, contents)
 {
     const CodeMirror = getCodeMirror();
+    const linenumber =
+        <div className = "CodeMirror-gutter-wrapper">
+            <span className = "CodeMirror-linenumber" />
+        </div>;
     const result = [[linenumber]];
 
     CodeMirror.runMode(contents, mode, function (text, style, _line_, _start_)
     {
         // We don't want to start a new line if we'll be finishing.
         if (text === "\n")
-            return result.push([linenumber]);
+            return result.push([linenumber, text]);
         
         const current = result[result.length - 1];
 
@@ -94,7 +97,7 @@ function highlightContents(mode, contents)
     const props = (children, key) => (
     {
         key,
-        className: children.length > 1 ? "" : "empty",
+        className: children.length > 2 ? "" : "empty",
     });
 
     return result.map((children, key) =>
