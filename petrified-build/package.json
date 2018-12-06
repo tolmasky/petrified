@@ -21,6 +21,7 @@
     "emotion-server": "^8.0.12",
     "generic-jsx": "^18.0.0-beta.3",
     "js-yaml": "^3.10.0",
+    "magic-ws": "^1.0.0",
     "micromatch": "^3.1.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

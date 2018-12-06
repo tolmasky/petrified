@@ -56,7 +56,7 @@ function posts({ site, components, source, destination, cache, children })
     const options = { components, props: { site }, assets:children[0] || { } };
     const transforms = [{ match: `${source}/*`, transform: post, directories: true, options }];
 
-    if (!fs.exists(source))
+    if (!require("fs").existsSync(source))
         return [];
 
     return <tree { ...{ source, transforms, destination, cache } }/>;
