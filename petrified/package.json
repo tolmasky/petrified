@@ -1,6 +1,6 @@
 {
   "name": "petrified",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@atom/watcher": "0.0.8",
     "@await/event": "^1.0.0",
